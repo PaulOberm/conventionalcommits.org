@@ -9,7 +9,7 @@ aliases: ["/de/"]
 
 Die Spezifikation für konventionelle Commits ist eine einfache Konvention, die auf Commit-Nachrichten aufbaut.
 Sie enthält einfache Regeln zum Erstellen einer expliziten Commit-Historie;
-das macht es einfacher, automatisierte Tools dazu zu schreiben.
+das macht es einfacher, automatisierte Tools dafür zu schreiben.
 Diese Konvention knüpft an [SemVer](http://semver.org/lang/de/) an,
 indem sie die Funktionen, Korrekturen und Änderungen beschreibt, die in Commit-Nachrichten vorgenommen wurden.
 
@@ -29,12 +29,12 @@ Die Commit-Nachricht sollte wie folgt aufgebaut sein:
 <br />
 Der Commit enthält die folgenden Strukturelemente, um den Benutzern Ihrer Bibliothek Ihre Absichten mitzuteilen:
 
-1. **fix:** ein Commit des _Typs_ `fix` behebt einen Fehler in Ihrer Codebasis (dies entsprich einem [`PATCH`](http://semver.org/#summary) in semantischer Versionierung).
+1. **fix:** ein Commit des _Typs_ `fix` behebt einen Fehler in Ihrer Codebasis (dies entspricht einem [`PATCH`](http://semver.org/#summary) in semantischer Versionierung).
 1. **feat:** ein Commit des _Typs_ `feat` führt eine neue Funktion in Ihrer Codebasis ein (dies entspricht einem [`MINOR`](http://semver.org/#summary) in semantischer Versionierung).
 1. **BREAKING CHANGE:** ein Commit mit `BREAKING CHANGE:` in der Fußzeile, oder einem angehängten `!` nach dem Typ/Gültigkeitsbereich, führt tiefgreifende Änderungen an der API ein (dies entspricht einem [`MAJOR`](http://semver.org/#summary) in semantischer Versionierung).
 Ein `BREAKING CHANGE` kann Teil eines Commits jeden _Typs_ sein.
 1. Andere _Typen_ als `fix:` und `feat:` sind erlaubt, z. B. erlaubt [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional) (basierend auf [the Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)) `build:`, `chore:`,
-  `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:` und andere.
+  `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:` und weitere.
 1. Andere _Fußzeilen_ als `BREAKING CHANGE: <Beschreibung>` können angegeben werden und folgen der Konvention ähnlich zum [git Trailer Format](https://git-scm.com/docs/git-interpret-trailers).
 
 Zusätzliche Typen sind in der konventionellen Commit-Spezifikation nicht vorgeschrieben und haben keine impliziten Auswirkungen auf die semantische Versionierung (sofern sie keinen `BREAKING CHANGE` enthalten).
@@ -100,7 +100,7 @@ Die Schlüsselwörter "MUSS", "DARF NICHT", "ERFORDERLICH", "SOLL", "SOLL NICHT"
 1. Der Typ `fix` MUSS benutzt werden, wenn ein Commit eine Fehlerbehebung für die Applikation darstellt.
 1. Ein Gültigkeitsbereich KANN nach einem Typen angegeben werden. Ein Gültigkeitsbereich MUSS aus einem Nomen in Klammern bestehen, das die betroffene Stelle im Code beschreibt, z. B. `fix(parser):`
 1. Eine Beschreibung MUSS direkt auf den Doppelpunkt und ein Leerzeichen nach dem Typ/Gültigkeitsbereich folgen. Die Beschreibung ist eine kurze Zusammenfassung der Code-Änderungen, z. B. _fix: array parsing issue when multiple spaces were contained in string_.
-1. Ein längerer Commit-Textkörper KANN nach der Kurzbeschreibung angegeben werden, um weitere kontextuelle Informationen über die Code-Änderungen zu geben. Der Textkörper MUSS nach eine Leerzeile nach der Beschreibung folgen.
+1. Ein längerer Commit-Textkörper KANN nach der Kurzbeschreibung angegeben werden, um weitere kontextuelle Informationen über die Code-Änderungen mitzugeben. Der Textkörper MUSS nach eine Leerzeile nach der Beschreibung folgen.
 1. Der Commit-Textkörper ist formlos und KANN aus einer beliebigen Anzahl an Absätzen bestehen, getrennt mit Zeilenumbrüchen.
 1. Eine oder mehrere Fußzeilen KÖNNEN nach einer Leerzeile unter dem Textkörper angegeben werden. Jede Fußzeile MUSS aus einem Symbolwort bestehen, gefolgt von einem `:<leer>` oder `<leer>#` Trennzeichen und einem String-Wert (basierend auf der [git trailer convention](https://git-scm.com/docs/git-interpret-trailers)).
 1. Symbolwörter MÜSSEN ein `-` statt eines Leerzeichens verwenden, z. B. `Acked-by` (dies hilft die Fußzeile von einem mehrzeiligen Textkörper zu unterscheiden). Eine Ausnahme bildet `BREAKING CHANGE`, was auch als Symbolwort benutzt werden KANN.
@@ -162,12 +162,12 @@ Im schlimmsten Fall ist es nicht das Ende der Welt, wenn ein Commit nicht der ko
 
 ### Müssen alle meine Mitwirkenden die konventionelle Commit-Spezifikation verwenden?
 
-Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Hauptentwickler (lead maintainer) die Commit-Nachrichten beim Mergen bereinigen — ohne gelegentliche Mitwirkenden zusätzliche Arbeit aufzubürden.
-Ein üblicher Arbeitsablauf hierfür ist, dass Ihr Git-System automatisch Commits aus einem Pull Request komprimiert (squash) und dem Hauptentwickler ein Formular vorlegt, in dem er die richtige Git-Commit-Nachricht für den Merge eingibt.
+Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Hauptentwickler (lead maintainer) die Commit-Nachrichten beim Zusammenführen (merge) bereinigen — ohne gelegentliche Mitwirkenden zusätzliche Arbeit aufzubürden.
+Ein üblicher Arbeitsablauf hierfür ist, dass Ihr Git-System automatisch Commits aus einem Pull Request komprimiert (squash) und dem Hauptentwickler ein Formular vorlegt, in dem er die richtige Git-Commit-Nachricht für die Zusammenführung (merge) eingibt.
 
 ### Wie geht Conventional Commits mit Revert Commits um?
 
-Das Zurücksetzen von Code kann kompliziert sein: Setzen Sie mehrere Commits zurück? Wenn Sie ein Feature zurücksetzen, sollte die nächste Version stattdessen ein Patch sein?
+Das Zurücksetzen von Code kann kompliziert sein: Setzen Sie mehrere Commits zurück? Wenn Sie ein Feature zurücksetzen, sollte die nächste Version stattdessen ein _Patch_ sein?
 
 Konventionelle Commits bemühen sich nicht explizit, das Wiederherstellungsverhalten zu definieren. Stattdessen überlassen wir es den Autoren, die Flexibilität von _Typen_ und _Fußzeilen_ zu nutzen, um ihre Logik für die Behandlung von Rückschritten zu entwickeln.
 

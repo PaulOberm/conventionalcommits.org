@@ -7,7 +7,7 @@ aliases: ["/de/"]
 
 ## Zusammenfassung
 
-Die Spezifikation für konventionelle Commits ist eine einfache Konvention, die auf Commit-Nachrichten aufbaut.
+Die Spezifikation für Konventionelle Commits ist eine einfache Konvention, die auf Commit-Nachrichten aufbaut.
 Sie enthält einfache Regeln zum Erstellen einer expliziten Commit-Historie;
 das macht es einfacher, automatisierte Tools dafür zu schreiben.
 Diese Konvention knüpft an [SemVer](http://semver.org/lang/de/) an,
@@ -37,7 +37,7 @@ Ein `BREAKING CHANGE` kann Teil eines Commits jeden _Typs_ sein.
   `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:` und weitere.
 1. Andere _Fußzeilen_ als `BREAKING CHANGE: <Beschreibung>` können angegeben werden und folgen der Konvention ähnlich zum [git Trailer Format](https://git-scm.com/docs/git-interpret-trailers).
 
-Zusätzliche Typen sind in der konventionellen Commit-Spezifikation nicht vorgeschrieben und haben keine impliziten Auswirkungen auf die semantische Versionierung (sofern sie keinen `BREAKING CHANGE` enthalten).
+Zusätzliche Typen sind in der Konventionellen Commit-Spezifikation nicht vorgeschrieben und haben keine impliziten Auswirkungen auf die semantische Versionierung (sofern sie keinen `BREAKING CHANGE` enthalten).
 <br /><br />
 Ein Gültigkeitsbereich kann zusammen mit einem Commit-Typen angegeben werden, um weitere kontextuelle Informationen in Klammern zu liefern, z. B. `feat(parser): add ability to parse arrays`.
 
@@ -112,7 +112,7 @@ Die Schlüsselwörter "MUSS", "DARF NICHT", "ERFORDERLICH", "SOLL", "SOLL NICHT"
 1. Die Informationseinheiten, aus denen herkömmliche Commits bestehen, DÜRFEN von Implementierern NICHT an Groß- und Kleinschreibung gebunden werden, mit Ausnahme von `BREAKING CHANGE`, bei dem es sich um Großbuchstaben handeln MUSS.
 1. BREAKING-CHANGE MUSS mit BREAKING CHANGE synonym bleiben, wenn es als Symbolwort in der Fußzeile benutzt wird.
 
-## Warum konventionelle Commits?
+## Warum Konventionelle Commits?
 
 * Automatisch generierte CHANGELOGs.
 * Automatisches Ermitteln einer semantischen Versionserhöhung (basierend auf den eingestellten Commit-Typen).
@@ -132,21 +132,21 @@ Das ist ganz Ihnen überlassen, aber seien Sie dabei konsequent.
 
 ### Was mache ich, wenn der Commit mehr als einem der Commit-Typen entspricht?
 
-Gehen Sie zurück und führen Sie nach Möglichkeit mehrere Commits durch. Ein Vorteil von konventionellen Commits ist, dass wir besser organisierte Commits und Pull Requests durchführen können.
+Gehen Sie zurück und führen Sie nach Möglichkeit mehrere Commits durch. Ein Vorteil von Konventionellen Commits ist, dass wir besser organisierte Commits und Pull Requests durchführen können.
 
 ### Verhindert dies nicht eine rasche Entwicklung und schnelle Iteration?
 
 Es verhindert, sich auf unorganisierte Weise schnell voranzubewegen. Es hilft Ihnen dabei, langfristig und schnell über mehrere Projekte hinweg mit unterschiedlichen Mitwirkenden zu entwickeln.
 
-### Könnten konventionelle Commits Entwickler dazu veranlassen, die Art der Commits zu begrenzen, die sie machen, weil sie in den zur Verfügung gestellten Typen denken werden?
+### Könnten Konventionelle Commits Entwickler dazu veranlassen, die Art der Commits zu begrenzen, die sie machen, weil sie in den zur Verfügung gestellten Typen denken werden?
 
-Konventionelle Commits ermutigen uns, bestimmte Arten von Commits wie z. B. Fixes zu verwenden. Abgesehen davon ermöglicht die Flexibilität der konventionellen Commits Ihrem Team, eigene Typen zu entwickeln und diese Typen im Laufe der Zeit zu ändern.
+Konventionelle Commits ermutigen uns, bestimmte Arten von Commits wie z. B. Fixes zu verwenden. Abgesehen davon ermöglicht die Flexibilität der Konventionellen Commits Ihrem Team, eigene Typen zu entwickeln und diese Typen im Laufe der Zeit zu ändern.
 
 ### In welcher Beziehung steht dies zu SemVer?
 
 Commits vom Typ `fix` sollten wie `PATCH` Veröffentlichungen behandelt werden. Commits vom Typ `feat` sollten wie `MINOR` Veröffentlichungen behandelt werden. Commits mit `BREAKING CHANGE` in den Commits sollten unabhängig vom Typ wie `MAJOR` Veröffentlichungen behandelt werden.
 
-### Wie soll ich meine Erweiterungen der konventionellen Commit-Spezifikation versionieren, z. B. `@jameswomack/conventional-commit-spec`?
+### Wie soll ich meine Erweiterungen der Konventionellen Commit-Spezifikation versionieren, z. B. `@jameswomack/conventional-commit-spec`?
 
 Wir empfehlen die Verwendung von SemVer, um Ihre eigenen Erweiterungen für diese Spezifikation zu veröffentlichen (und begrüßen es, diese Erweiterungen vorzunehmen!)
 
@@ -158,16 +158,16 @@ Vor dem Zusammenführen (merge) oder Freigeben des Fehlers wird empfohlen, mit `
 
 #### Wenn Sie einen Typ verwendet haben, der *nicht* der Spezifikation entspricht, z. B. `feet` statt `feat`
 
-Im schlimmsten Fall ist es nicht das Ende der Welt, wenn ein Commit nicht der konventionellen Commit-Spezifikation entspricht. Dies bedeutet lediglich, dass der Commit nicht von Tools erfasst wird, die sich an die Spezifikation halten.
+Im schlimmsten Fall ist es nicht das Ende der Welt, wenn ein Commit nicht der Konventionellen Commit-Spezifikation entspricht. Dies bedeutet lediglich, dass der Commit nicht von Tools erfasst wird, die sich an die Spezifikation halten.
 
-### Müssen alle meine Mitwirkenden die konventionelle Commit-Spezifikation verwenden?
+### Müssen alle meine Mitwirkenden die Konventionelle Commit-Spezifikation verwenden?
 
 Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Hauptentwickler (lead maintainer) die Commit-Nachrichten beim Zusammenführen (merge) bereinigen — ohne gelegentliche Mitwirkenden zusätzliche Arbeit aufzubürden.
 Ein üblicher Arbeitsablauf hierfür ist, dass Ihr Git-System automatisch Commits aus einem Pull Request komprimiert (squash) und dem Hauptentwickler ein Formular vorlegt, in dem er die richtige Git-Commit-Nachricht für die Zusammenführung (merge) eingibt.
 
 ### Wie geht Conventional Commits mit Revert Commits um?
 
-Das Zurücksetzen von Code kann kompliziert sein: Setzen Sie mehrere Commits zurück? Wenn Sie ein Feature zurücksetzen, sollte die nächste Version stattdessen ein _Patch_ sein?
+Das Zurücksetzen von Code kann kompliziert sein: Setzen Sie mehrere Commits zurück? Wenn Sie ein _Feature_ zurücksetzen, sollte die nächste Version stattdessen ein _Patch_ sein?
 
 Konventionelle Commits bemühen sich nicht explizit, das Wiederherstellungsverhalten zu definieren. Stattdessen überlassen wir es den Autoren, die Flexibilität von _Typen_ und _Fußzeilen_ zu nutzen, um ihre Logik für die Behandlung von Rückschritten zu entwickeln.
 

@@ -136,7 +136,7 @@ Gehen Sie zurück und führen Sie nach Möglichkeit mehrere Commits durch. Ein V
 
 ### Verhindert dies nicht eine rasche Entwicklung und schnelle Iteration?
 
-Es verhindert auf unorganisierte Weise schnell voranzubewegen. Es hilft Ihnen dabei, sich langfristig und schnell über mehrere Projekte hinweg mit unterschiedlichen Mitwirkenden zu bewegen.
+Es verhindert, sich auf unorganisierte Weise schnell voranzubewegen. Es hilft Ihnen dabei, langfristig und schnell über mehrere Projekte hinweg mit unterschiedlichen Mitwirkenden zu entwickeln.
 
 ### Könnten konventionelle Commits Entwickler dazu veranlassen, die Art der Commits zu begrenzen, die sie machen, weil sie in den zur Verfügung gestellten Typen denken werden?
 
@@ -144,9 +144,9 @@ Konventionelle Commits ermutigen uns, bestimmte Arten von Commits wie z. B. Fixe
 
 ### In welcher Beziehung steht dies zu SemVer?
 
-Commits vom Typ `fix` sollten wie `PATCH` Releases behandelt werden. Commits vom Typ `feat` sollten wie `MINOR` Releases behandelt werden. Commits mit `BREAKING CHANGE` in den Commits sollten unabhängig vom Typ wie `MAJOR` Releases behandelt werden.
+Commits vom Typ `fix` sollten wie `PATCH` Veröffentlichungen behandelt werden. Commits vom Typ `feat` sollten wie `MINOR` Veröffentlichungen behandelt werden. Commits mit `BREAKING CHANGE` in den Commits sollten unabhängig vom Typ wie `MAJOR` Veröffentlichungen behandelt werden.
 
-### Wie soll ich meine Erweiterungen der konventionellen Commit Spezifikation versionieren, z. B. `@jameswomack/conventional-commit-spec`?
+### Wie soll ich meine Erweiterungen der konventionellen Commit-Spezifikation versionieren, z. B. `@jameswomack/conventional-commit-spec`?
 
 Wir empfehlen die Verwendung von SemVer, um Ihre eigenen Erweiterungen für diese Spezifikation zu veröffentlichen (und begrüßen es, diese Erweiterungen vorzunehmen!)
 
@@ -154,16 +154,16 @@ Wir empfehlen die Verwendung von SemVer, um Ihre eigenen Erweiterungen für dies
 
 #### Wenn Sie einen Typ verwendet haben, der der Spezifikation, aber nicht dem richtigen Typ entspricht, z. B. `fix` statt `feat`
 
-Vor dem Zusammenführen (merge) oder Freigeben des Fehlers wird empfohlen, mit `git rebase -i` die Commit Historie zu bearbeiten. Nach der Veröffentlichung ist die Bereinigung je nach den verwendeten Tools und Prozessen unterschiedlich.
+Vor dem Zusammenführen (merge) oder Freigeben des Fehlers wird empfohlen, mit `git rebase -i` die Commit-Historie zu bearbeiten. Nach der Veröffentlichung ist die Bereinigung je nach den verwendeten Tools und Prozessen unterschiedlich.
 
 #### Wenn Sie einen Typ verwendet haben, der *nicht* der Spezifikation entspricht, z. B. `feet` statt `feat`
 
-Im schlimmsten Fall ist es nicht das Ende der Welt, wenn ein Commit nicht der konventionellen Commit Spezifikation entspricht. Dies bedeutet lediglich, dass der Commit nicht von Tools erfasst wird, die sich an die Spezifikation halten.
+Im schlimmsten Fall ist es nicht das Ende der Welt, wenn ein Commit nicht der konventionellen Commit-Spezifikation entspricht. Dies bedeutet lediglich, dass der Commit nicht von Tools erfasst wird, die sich an die Spezifikation halten.
 
-### Müssen alle meine Mitwirkenden die konventionelle Commit Spezifikation verwenden?
+### Müssen alle meine Mitwirkenden die konventionelle Commit-Spezifikation verwenden?
 
-Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Lead Maintainer die Commit-Nachrichten beim Mergen bereinigen — ohne gelegentliche Mitwirkenden zusätzliche Arbeit aufzubürden.
-Ein üblicher Arbeitsablauf hierfür ist, dass Ihr Git-System automatisch Commits aus einem Pull Request squasht und dem Lead Maintainer ein Formular vorlegt, in dem er die richtigen Git-Commit-Nachricht für den Merge eingibt.
+Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Hauptentwickler (lead maintainer) die Commit-Nachrichten beim Mergen bereinigen — ohne gelegentliche Mitwirkenden zusätzliche Arbeit aufzubürden.
+Ein üblicher Arbeitsablauf hierfür ist, dass Ihr Git-System automatisch Commits aus einem Pull Request komprimiert (squash) und dem Hauptentwickler ein Formular vorlegt, in dem er die richtige Git-Commit-Nachricht für den Merge eingibt.
 
 ### Wie geht Conventional Commits mit Revert Commits um?
 

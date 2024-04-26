@@ -32,14 +32,14 @@ Der Commit enthält die folgenden Strukturelemente, um den Benutzern Ihrer Bibli
 1. **fix:** ein Commit des _Typs_ `fix` behebt einen Fehler in Ihrer Codebasis (dies entsprich einem [`PATCH`](http://semver.org/#summary) in semantischer Versionierung).
 1. **feat:** ein Commit des _Typs_ `feat` führt eine neue Funktion in Ihrer Codebasis ein (dies entspricht einem [`MINOR`](http://semver.org/#summary) in semantischer Versionierung).
 1. **BREAKING CHANGE:** ein Commit mit `BREAKING CHANGE:` in der Fußzeile, oder einem angehängten `!` nach dem Typ/Gültigkeitsbereich, führt tiefgreifende Änderungen an der API ein (dies entspricht einem [`MAJOR`](http://semver.org/#summary) in semantischer Versionierung).
-Ein BREAKING CHANGE kann Teil eines Commits jeden _Typs_ sein.
+Ein `BREAKING CHANGE` kann Teil eines Commits jeden _Typs_ sein.
 1. Andere _Typen_ als `fix:` und `feat:` sind erlaubt, z. B. erlaubt [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional) (basierend auf [the Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)) `build:`, `chore:`,
-  `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, und andere.
+  `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:` und andere.
 1. Andere _Fußzeilen_ als `BREAKING CHANGE: <Beschreibung>` können angegeben werden und folgen der Konvention ähnlich zum [git Trailer Format](https://git-scm.com/docs/git-interpret-trailers).
 
-Zusätzliche Typen sind in der konventionellen Commit-Spezifikation nicht vorgeschrieben und haben keine impliziten Auswirkungen auf die semantische Versionierung (sofern sie keinen BREAKING CHANGE enthalten).
+Zusätzliche Typen sind in der konventionellen Commit-Spezifikation nicht vorgeschrieben und haben keine impliziten Auswirkungen auf die semantische Versionierung (sofern sie keinen `BREAKING CHANGE` enthalten).
 <br /><br />
-Ein Gültigkeitsbereich kann zusammen mit einem Commit Typen angegeben werden, um weitere kontextuelle Informationen in Klammern zu geben, z. B. `feat(parser): add ability to parse arrays`.
+Ein Gültigkeitsbereich kann zusammen mit einem Commit-Typen angegeben werden, um weitere kontextuelle Informationen in Klammern zu liefern, z. B. `feat(parser): add ability to parse arrays`.
 
 ## Beispiele
 
@@ -50,17 +50,17 @@ feat: allow provided config object to extend other configs
 BREAKING CHANGE: `extends` key in config file is now used for extending other config files
 ```
 
-### Commit-Nachricht mit `!` um auf einen Breaking Change aufmerksam zu machen
+### Commit-Nachricht mit `!` um auf eine inkompatible Änderung aufmerksam zu machen
 ```
 feat!: send an email to the customer when a product is shipped
 ```
 
-### Commit-Nachricht mit Gültigkeitsbereich und `!` um auf einen Breaking Change aufmerksam zu machen
+### Commit-Nachricht mit Gültigkeitsbereich und `!` um auf eine inkompatible Änderung aufmerksam zu machen
 ```
 feat(api)!: send an email to the customer when a product is shipped
 ```
 
-### Commit-Nachricht mit `!` als auch BREAKING CHANGE Fußzeile
+### Commit-Nachricht mit sowohl `!` als auch BREAKING CHANGE Fußzeile
 ```
 chore!: drop support for Node 6
 
@@ -105,18 +105,18 @@ Die Schlüsselwörter "MUSS", "DARF NICHT", "ERFORDERLICH", "SOLL", "SOLL NICHT"
 1. Eine oder mehrere Fußzeilen KÖNNEN nach einer Leerzeile unter dem Textkörper angegeben werden. Jede Fußzeile MUSS aus einem Symbolwort bestehen, gefolgt von einem `:<leer>` oder `<leer>#` Trennzeichen und einem String-Wert (basierend auf der [git trailer convention](https://git-scm.com/docs/git-interpret-trailers)).
 1. Symbolwörter MÜSSEN ein `-` statt eines Leerzeichens verwenden, z. B. `Acked-by` (dies hilft die Fußzeile von einem mehrzeiligen Textkörper zu unterscheiden). Eine Ausnahme bildet `BREAKING CHANGE`, was auch als Symbolwort benutzt werden KANN.
 1. Der Wert einer Fußzeile KANN Leerzeichen und Zeilenumbrüche enthalten. Das Parsen MUSS beendet werden, wenn das nächste gültige Paar Fußzeilen-Symbolwort/Trennzeichen erkannt wird.
-1. Breaking Changes MÜSSEN mit dem Typen-/Gültigkeitsbereichs-Präfix eines Commits angegeben werden oder als Eintrag in der Fußzeile.
-1. Wenn ein Breaking Change als Fußzeile eingefügt wird, MUSS sie aus dem Großbuchstaben BREAKING CHANGE bestehen, gefolgt von einem Doppelpunkt, einem Leerzeichen und einer Beschreibung, z. B. _BREAKING CHANGE: environment variables now take precedence over config files_.
-1. Wenn im Typen-/Gültigkeitsbereichs-Präfix enthalten, MÜSSEN Breaking Changes mit einem `!` direkt vor dem `:` angegeben werden. Wenn `!` benutzt wird KANN `BREAKING CHANGE:` aus der Fußzeile weggelassen werden und die Commit-Beschreibung SOLL benutzt werden um den Breaking Change zu beschreiben.
+1. Inkompatible Änderungen (breaking changes) MÜSSEN mit dem Typen-/Gültigkeitsbereichs-Präfix eines Commits angegeben werden oder als Eintrag in der Fußzeile.
+1. Wenn eine inkompatible Änderung als Fußzeile eingefügt wird, MUSS sie aus den Großbuchstaben BREAKING CHANGE bestehen, gefolgt von einem Doppelpunkt, einem Leerzeichen und einer Beschreibung, z. B. _BREAKING CHANGE: environment variables now take precedence over config files_.
+1. Wenn im Typen-/Gültigkeitsbereichs-Präfix enthalten, MÜSSEN inkompatible Änderungen mit einem `!` direkt vor dem `:` angegeben werden. Wenn `!` benutzt wird KANN `BREAKING CHANGE:` aus der Fußzeile weggelassen werden und die Commit-Beschreibung SOLL benutzt werden um die inkompatible Änderung zu beschreiben.
 1. Andere Typen als `feat` und `fix` KÖNNEN in der Commit-Nachricht benutzt werden, z. B. _docs: updated ref docs._
-1. Die Informationseinheiten, aus denen herkömmliche Commits bestehen, DÜRFEN von Implementierern NICHT mit Groß- und Kleinschreibung behandelt werden, mit Ausnahme von BREAKING CHANGE, bei dem es sich um Großbuchstaben handeln MUSS.
+1. Die Informationseinheiten, aus denen herkömmliche Commits bestehen, DÜRFEN von Implementierern NICHT an Groß- und Kleinschreibung gebunden werden, mit Ausnahme von `BREAKING CHANGE`, bei dem es sich um Großbuchstaben handeln MUSS.
 1. BREAKING-CHANGE MUSS mit BREAKING CHANGE synonym bleiben, wenn es als Symbolwort in der Fußzeile benutzt wird.
 
 ## Warum konventionelle Commits?
 
-* Automatisch generierende CHANGELOGs.
+* Automatisch generierte CHANGELOGs.
 * Automatisches Ermitteln einer semantischen Versionserhöhung (basierend auf den eingestellten Commit-Typen).
-* Kommunikation der Art von Änderungen an Teamkollegen, die Öffentlichkeit und andere Stakeholder.
+* Kommunikation der Art von Änderungen an Teamkollegen, die Öffentlichkeit und andere Interessensgruppen.
 * Auslösen von Build- und Veröffentlichungsprozessen.
 * Erleichtern Sie es Leuten, einen Beitrag zu Ihren Projekten zu leisten, indem Sie ihnen ermöglichen, einen strukturierteren Commit-Verlauf zu erkunden.
 
@@ -136,7 +136,7 @@ Gehen Sie zurück und führen Sie nach Möglichkeit mehrere Commits durch. Ein V
 
 ### Verhindert dies nicht eine rasche Entwicklung und schnelle Iteration?
 
-Es verhindert sich auf unorganisierte Weise schnell voranzubewegen. Es hilft Ihnen dabei, sich langfristig und schnell über mehrere Projekte mit unterschiedlichen Mitwirkenden hinweg zu bewegen.
+Es verhindert auf unorganisierte Weise schnell voranzubewegen. Es hilft Ihnen dabei, sich langfristig und schnell über mehrere Projekte hinweg mit unterschiedlichen Mitwirkenden zu bewegen.
 
 ### Könnten konventionelle Commits Entwickler dazu veranlassen, die Art der Commits zu begrenzen, die sie machen, weil sie in den zur Verfügung gestellten Typen denken werden?
 
@@ -154,7 +154,7 @@ Wir empfehlen die Verwendung von SemVer, um Ihre eigenen Erweiterungen für dies
 
 #### Wenn Sie einen Typ verwendet haben, der der Spezifikation, aber nicht dem richtigen Typ entspricht, z. B. `fix` statt `feat`
 
-Vor dem Mergen oder Freigeben des Fehlers wird empfohlen, mit `git rebase -i` die Commit Historie zu bearbeiten. Nach der Veröffentlichung ist die Bereinigung je nach den verwendeten Tools und Prozessen unterschiedlich.
+Vor dem Zusammenführen (merge) oder Freigeben des Fehlers wird empfohlen, mit `git rebase -i` die Commit Historie zu bearbeiten. Nach der Veröffentlichung ist die Bereinigung je nach den verwendeten Tools und Prozessen unterschiedlich.
 
 #### Wenn Sie einen Typ verwendet haben, der *nicht* der Spezifikation entspricht, z. B. `feet` statt `feat`
 
@@ -162,14 +162,14 @@ Im schlimmsten Fall ist es nicht das Ende der Welt, wenn ein Commit nicht der ko
 
 ### Müssen alle meine Mitwirkenden die konventionelle Commit Spezifikation verwenden?
 
-Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Lead Maintainer die Commit-Nachrichten beim Mergen bereinigen — ohne gelegentlichen Committern zusätzliche Arbeit aufzubürden.
-Ein üblicher Workflow hierfür ist, dass Ihr Git-System automatisch Commits aus einem Pull Request squasht und dem Lead Maintainer ein Formular vorlegt, in dem er die richtige Git-Commit-Nachricht für den Merge eingibt.
+Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Lead Maintainer die Commit-Nachrichten beim Mergen bereinigen — ohne gelegentliche Mitwirkenden zusätzliche Arbeit aufzubürden.
+Ein üblicher Arbeitsablauf hierfür ist, dass Ihr Git-System automatisch Commits aus einem Pull Request squasht und dem Lead Maintainer ein Formular vorlegt, in dem er die richtigen Git-Commit-Nachricht für den Merge eingibt.
 
 ### Wie geht Conventional Commits mit Revert Commits um?
 
 Das Zurücksetzen von Code kann kompliziert sein: Setzen Sie mehrere Commits zurück? Wenn Sie ein Feature zurücksetzen, sollte die nächste Version stattdessen ein Patch sein?
 
-Konventionelle Commits bemühen sich nicht explizit, das Wiederherstellungsverhalten zu definieren. Stattdessen überlassen wir es den Autoren, die Flexibilität von _Typen_ und _Fußzeilen_ zu nutzen, um ihre Logik für die Behandlung von Reverts zu entwickeln.
+Konventionelle Commits bemühen sich nicht explizit, das Wiederherstellungsverhalten zu definieren. Stattdessen überlassen wir es den Autoren, die Flexibilität von _Typen_ und _Fußzeilen_ zu nutzen, um ihre Logik für die Behandlung von Rückschritten zu entwickeln.
 
 Eine Empfehlung wäre, den `revert` Typ und eine Fußzeile zu verwenden, die auf die zurückgesetzten Commit-SHAs verweist:
 

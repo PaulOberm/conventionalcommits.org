@@ -7,7 +7,7 @@ aliases: ["/de/"]
 
 ## Zusammenfassung
 
-Die Spezifikation für Konventionelle Commits ist eine einfache Konvention, die auf Commit-Nachrichten aufbaut.
+Die Spezifikation für Konventionelle Commits ist eine bloße Konvention, die auf Commit-Nachrichten aufbaut.
 Sie enthält einfache Regeln zum Erstellen einer expliziten Commit-Historie;
 das macht es einfacher, automatisierte Tools dafür zu schreiben.
 Diese Konvention knüpft an [SemVer](http://semver.org/lang/de/) an,
@@ -43,7 +43,7 @@ Ein Gültigkeitsbereich kann zusammen mit einem Commit-Typen angegeben werden, u
 
 ## Beispiele
 
-### Commit-Nachricht mit Beschreibung und Breaking Change Fußzeile
+### Commit-Nachricht mit Beschreibung und Fußzeile mit inkompatibler Änderung
 ```
 feat: allow provided config object to extend other configs
 
@@ -60,7 +60,7 @@ feat!: send an email to the customer when a product is shipped
 feat(api)!: send an email to the customer when a product is shipped
 ```
 
-### Commit-Nachricht mit sowohl `!` als auch BREAKING CHANGE Fußzeile
+### Commit-Nachricht mit sowohl `!` als auch `BREAKING CHANGE` Fußzeile
 ```
 chore!: drop support for Node 6
 
@@ -162,14 +162,14 @@ Im schlimmsten Fall ist es nicht das Ende der Welt, wenn ein Commit nicht der Ko
 
 ### Müssen alle meine Mitwirkenden die Konventionelle Commit-Spezifikation verwenden?
 
-Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Hauptentwickler (lead maintainer) die Commit-Nachrichten beim Zusammenführen (merge) bereinigen — ohne gelegentliche Mitwirkenden zusätzliche Arbeit aufzubürden.
+Nein! Wenn Sie einen Squash-basierten Workflow auf Git benutzen, können Hauptentwickler (lead maintainer) die Commit-Nachrichten beim Zusammenführen (merge) bereinigen — ohne gelegentlich Mitwirkenden zusätzliche Arbeit aufzubürden.
 Ein üblicher Arbeitsablauf hierfür ist, dass Ihr Git-System automatisch Commits aus einem Pull Request komprimiert (squash) und dem Hauptentwickler ein Formular vorlegt, in dem er die richtige Git-Commit-Nachricht für die Zusammenführung (merge) eingibt.
 
 ### Wie geht Conventional Commits mit Revert Commits um?
 
 Das Zurücksetzen von Code kann kompliziert sein: Setzen Sie mehrere Commits zurück? Wenn Sie ein _Feature_ zurücksetzen, sollte die nächste Version stattdessen ein _Patch_ sein?
 
-Konventionelle Commits bemühen sich nicht explizit, das Wiederherstellungsverhalten zu definieren. Stattdessen überlassen wir es den Autoren, die Flexibilität von _Typen_ und _Fußzeilen_ zu nutzen, um ihre Logik für die Behandlung von Rückschritten zu entwickeln.
+Konventionelle Commits bemühen sich nicht explizit, das Wiederherstellungsverhalten zu definieren. Stattdessen überlassen wir es den Autoren, die Flexibilität von _Typen_ und _Fußzeilen_ zu nutzen, um ihre Logik für die Behandlung von Rückschritten (rollback) zu entwickeln.
 
 Eine Empfehlung wäre, den `revert` Typ und eine Fußzeile zu verwenden, die auf die zurückgesetzten Commit-SHAs verweist:
 
